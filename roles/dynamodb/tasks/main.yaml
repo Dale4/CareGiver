@@ -1,0 +1,10 @@
+
+- name: "{{ 'Create' if table_state == 'present' else 'Delete' }} DynamoDB Table"
+  community.aws.dynamodb_table:
+    name: MyDynamoDBTable
+    hash_key_name: id
+    hash_key_type: STRING
+    read_capacity: 5
+    write_capacity: 5
+    region: us-west-1
+    state: "{{ table_state }}"

@@ -1,0 +1,8 @@
+- name: Deploy DynamoDB with Ansible
+  hosts: localhost                   # the playbook runs on the local machine instead of remote server.
+  gather_facts: no
+  roles:
+    - dynamodb
+  vars:
+    table_state: present  # change to 'present' to create and 'absent' to delete table
+

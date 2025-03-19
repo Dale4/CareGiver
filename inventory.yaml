@@ -1,0 +1,5 @@
+all:
+  hosts:
+    localhost:                   #Specifies that the playbook will run on your local machine.
+      ansible_connection: local  #Tells Ansible not to use SSH but to execute commands directly on local machine where playbook is run
+      ansible_python_interpreter: /usr/bin/python3  # Explicitly set Python to use python3

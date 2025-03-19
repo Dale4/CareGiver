@@ -1,0 +1,12 @@
+- name: List All DynamoDB Tables
+  amazon.aws.dynamodb_table_info:
+    region: us-west-1  # Change to your desired AWS region
+  register: dynamodb_tables
+  tags:
+    - list
+
+- name: Display DynamoDB Tables
+  debug:
+    msg: "DynamoDB Tables: {{ dynamodb_tables.tables }}"
+  tags:
+    - list
