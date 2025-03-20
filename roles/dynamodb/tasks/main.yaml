@@ -1,10 +1,32 @@
-
-- name: "{{ 'Create' if table_state == 'present' else 'Delete' }} DynamoDB Table"
+- name: Create DynamoDB Table
   community.aws.dynamodb_table:
     name: MyDynamoDBTable
     hash_key_name: id
     hash_key_type: STRING
-    read_capacity: 5
-    write_capacity: 5
     region: us-west-1
-    state: "{{ table_state }}"
+    state: present
+  tags:
+    - create
+
+- name: Delete DynamoDB Table
+  community.aws.dynamodb_table:
+    name: MyDynamoDBTable
+    region: us-west-1
+    state: absent
+  tags:
+    - delete
+
+- name: List All DynamoDB Tables using AWS CLI
+  ansible.builtin.command: aws dynamodb list-tables --region us-west-1 --output json
+  register: dynamodb_tables
+  tags:
+    - list
+
+- name: Display DynamoDB Tables
+  debug:
+    msg: "{{ dynamodb_tables.stdout | from_json }}"
+  tags:
+    - list
+
+   
+
