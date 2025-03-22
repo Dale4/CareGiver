@@ -1,0 +1,6 @@
+@GenerateERData_HostAddress = http://localhost:5251
+
+GET {{GenerateERData_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
