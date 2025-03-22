@@ -1,0 +1,5 @@
+- name: Deploy ECS Fargate
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - ecs_fargate

@@ -1,0 +1,56 @@
+- name: Create ECS Cluster
+  community.aws.ecs_cluster:
+    name: "{{ cluster_name }}"
+    state: present
+    region: "{{ region }}"
+  when: not delete_resources
+
+- name: Register Task Definition
+  community.aws.ecs_taskdefinition:
+    family: "{{ task_definition_name }}"
+    network_mode: "awsvpc"
+    cpu: "{{ cpu }}"
+    memory: "{{ memory }}"
+    execution_role_arn: "{{ execution_role_arn }}"
+    state: present  # Ensure task definition is registered
+    containers:
+      - name: "{{ container_name }}"
+        image: "{{ image_name }}"
+        essential: true
+        cpu: "{{ cpu }}"
+        memory: "{{ memory }}"
+        portMappings:
+          - containerPort: 80
+    region: "{{ region }}"
+  when: not delete_resources
+
+- name: Create ECS Service
+  community.aws.ecs_service:
+    name: "{{ service_name }}"
+    cluster: "{{ cluster_name }}"
+    task_definition: "{{ task_definition_name }}"
+    launch_type: "FARGATE"
+    desired_count: 2
+    network_configuration:
+      subnets: "{{ subnet_ids }}"
+      security_groups: "{{ security_groups }}"
+      assign_public_ip: "true"
+    state: present
+    region: "{{ region }}"
+  when: not delete_resources
+
+- name: Delete ECS Service
+  community.aws.ecs_service:
+    name: "{{ service_name }}"
+    cluster: "{{ cluster_name }}"
+    state: absent
+    region: "{{ region }}"
+  when: delete_resources
+
+- name: Delete ECS Cluster
+  community.aws.ecs_cluster:
+    name: "{{ cluster_name }}"
+    state: absent
+    region: "{{ region }}"
+  when: delete_resources
+
