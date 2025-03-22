@@ -2,7 +2,7 @@
 cluster_name: "my-fargate-cluster"
 service_name: "my-fargate-service"
 task_definition_name: "my-fargate-task"
-container_name: "my-container2"
+container_name: "my-container4"
 image_name: "my-docker-image:latest"
 cpu: "256"
 memory: "512"
