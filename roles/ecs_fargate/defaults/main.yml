@@ -1,0 +1,22 @@
+# General settings
+cluster_name: "my-fargate-cluster"
+service_name: "my-fargate-service"
+task_definition_name: "my-fargate-task"
+container_name: "datagenerator4"
+image_name: "caregiver:latest"
+cpu: "256"
+memory: "512"
+region: "us-west-1"
+
+# Networking
+subnet_ids:
+  - "subnet-026990450514b5d9c"
+  - "subnet-0ff30ceb9a0f718ea"
+security_groups:
+  - "sg-012d51c6790b0bb86"
+
+# IAM Role
+execution_role_arn: "arn:aws:iam::437104085542:role/ecsTaskExecutionRole"
+
+# Resource state (true for deletion, false for creation)
+delete_resources: false
