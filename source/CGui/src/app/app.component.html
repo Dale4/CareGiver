@@ -5,4 +5,11 @@
 
 
 <app-header></app-header>
+
+<button mat-icon-button (click)="toggleSlider()" aria-label="Toggle Settings">
+    <mat-icon>{{ this.slider?.visible ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+  </button>
+
+
+<app-settings #slider></app-settings>
 <router-outlet></router-outlet>

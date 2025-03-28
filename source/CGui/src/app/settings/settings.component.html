@@ -1,0 +1,14 @@
+<div *ngIf="visible" class="drawer-overlay" (click)="close()"></div>
+<div class="drawer" [class.open]="visible">
+  <h2>Settings</h2>
+  <ul>
+    <li *ngFor="let item of items; index as i">
+      <label>
+        <input type="checkbox" [(ngModel)]="items[i].checked" (change)="onToggle(i)" />
+        {{ item.label }}
+      </label>
+    </li>
+  </ul>
+  <button class="btn btn-danger" (click)="close()">Close</button>
+</div>
+
