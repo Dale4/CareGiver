@@ -10,7 +10,7 @@
     </div>
   </nav>
     <button mat-icon-button class="settings-btn"  (click)="toggleSlider()" aria-label="Toggle Settings">
-      <mat-icon>{{ this.slider?.visible ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+      <mat-icon>{{ this.slider?.visible ? 'chevron_right' : 'chevron_left' }}</mat-icon>
     </button>
     <app-settings #slider></app-settings> <!-- Needs to be in the same template -->
 </header>
