@@ -1,11 +1,19 @@
 <!-- header.component.html -->
-<header>
-    <nav>
+<header class="app-header">
+  <nav class="nav-container">
+    <div class="nav-links">
       <button class="btn" routerLink="/home">Home</button>
       <button class="btn" routerLink="/about">About</button>
       <button class="btn" routerLink="/contact">Contact</button>
       <button class="btn" routerLink="/page1">page1</button>
       <button class="btn" routerLink="/page2">page2</button>
-    </nav>
-  </header>
+    </div>
+  </nav>
+    <button mat-icon-button class="settings-btn"  (click)="toggleSlider()" aria-label="Toggle Settings">
+      <mat-icon>{{ this.slider?.visible ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+    </button>
+    <app-settings #slider></app-settings> <!-- Needs to be in the same template -->
+</header>
+
+  
   

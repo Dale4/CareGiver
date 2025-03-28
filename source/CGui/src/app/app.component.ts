@@ -23,12 +23,5 @@ export class AppComponent {
   }
 
  
-  toggleSlider() {
-    if(this.slider?.visible) {
-      this.slider?.close(); // Close the slider if it's open
-    } else { 
-      this.slider?.open(); // Open the slider if it's closed
-    }
-  }
   
 }
