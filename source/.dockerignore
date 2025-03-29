@@ -28,3 +28,9 @@ README.md
 !.git/config
 !.git/packed-refs
 !.git/refs/heads/**
+node_modules
+dist
+.git
+Dockerfile*
+Docker-compose*
+*.log
