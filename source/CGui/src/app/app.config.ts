@@ -1,6 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { CustApplyComponent } from './cust-apply/cust-apply.component';
 import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,6 +12,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 const routes = [
   { path: '', component: HomeComponent },
+  { path: 'cust-apply', component: CustApplyComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'page1', component: Page1Component },

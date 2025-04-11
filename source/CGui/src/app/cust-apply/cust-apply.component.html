@@ -1,0 +1,47 @@
+<div class="cust-apply-container">
+    <div class="left-nav">
+      <ul>
+        <li *ngFor="let section of sections" (click)="scrollTo(section.id)" [class.active]="activeSection === section.id">
+            <span class="circle" [class.filled]="activeSection === section.id"></span>
+            {{ section.label }}
+          </li>
+      </ul>
+    </div>
+
+    
+
+    <div class="right-content" (scroll)="onScroll($event)" #scrollContainer>
+      <section id="start">
+        <h2>Welcome to the Application Portal</h2>
+        <p>This is the introduction or overview section.</p>
+      </section>      
+      <section id="resume">
+        <h2>Fill in resume</h2>
+        <p>This is the introduction or overview section.</p>
+      </section>      
+      <section id="contact">
+        <h2>Complete contact Information</h2>
+        <p>This is the introduction or overview section.</p>
+      </section>      
+      <section id="app1">
+        <h2>Complete App1</h2>
+        <form>
+          <label *ngFor="let option of app1Options" class="radio-option">
+            <input
+              type="radio"
+              name="app1Question"
+              [value]="option"
+              [(ngModel)]="selectedApp1Option"
+            />
+            {{ option }}
+          </label>
+        </form>        
+        <p *ngIf="selectedApp1Option">You selected: {{ selectedApp1Option }}</p>
+      </section>      
+      <section id="app2">
+        <h2>Complete App2</h2>
+        <p>This is the introduction or overview section.</p>
+      </section>      
+    </div>
+  </div>
+  

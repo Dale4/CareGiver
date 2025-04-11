@@ -1,0 +1,93 @@
+.cust-apply-container {
+    display: flex;
+    height: 100vh;
+  }
+
+  /* Left side: fixed height, doesn't scroll */
+  .left-nav {
+    width: 240px;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    background: #f9f9f9;
+    flex-shrink: 0;
+    overflow: hidden;
+  } 
+  
+  /* Right side: scrolls independently */
+  .right-content {
+    flex: 1;
+    overflow-y: auto;
+    height: 100vh;
+    padding: 20px;
+  }  
+
+  /* Section styling just for visual structure */
+  section {
+    height: 100vh;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+  }  
+
+  /* Circle indicator styles */
+  .left-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .left-nav li {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+    color: #555;
+  }
+  
+  .left-nav li.active {
+    font-weight: bold;
+    color: #0a66c2;
+  }
+  
+  .circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-right: 10px;
+    display: inline-block;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .circle.filled {
+    background-color: #0a66c2;
+    border-color: #0a66c2;
+  }
+
+  section#start {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f0f4f8;
+  }
+  
+  section#resume {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f0f4f8;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .radio-option input[type='radio'] {
+    margin-right: 8px;
+  }
+  
+  
